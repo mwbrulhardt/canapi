@@ -1,0 +1,12 @@
+{
+    "name": "flightaware",
+    "uri": "https://flightxml.flightaware.com/json/FlightXML2",
+    "endpoints": {
+        "reference": {
+            "all_airports": {
+                "method": "GET",
+                "path": "/AllAirports"
+            }
+        }
+    }
+}

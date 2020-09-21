@@ -1,0 +1,255 @@
+{
+    "name": "coinbasepro",
+    "uri": "https://api.pro.coinbase.com",
+    "endpoints": {
+        "accounts": {
+            "list": {
+                "method": "GET",
+                "path": "/accounts"
+            },
+            "get": {
+                "method": "GET",
+                "path": "/accounts/${account_id}"
+            },
+            "history": {
+                "method": "GET",
+                "path": "/accounts/${account_id}/ledger"
+            },
+            "holds": {
+                "method": "GET",
+                "path": "/accounts/${account_id}/holds"
+            }
+        },
+        "orders": {
+            "place": {
+                "method": "POST",
+                "path": "/orders"
+            },
+            "cancel": {
+                "by_id": {
+                    "method": "DELETE",
+                    "path": "/orders/${id}"
+                },
+                "by_client_oid": {
+                    "method": "DELETE",
+                    "path": "/orders/client:${client_oid}"
+                },
+                "all": {
+                    "method": "DELETE",
+                    "path": "/orders/all"
+                }
+            },
+            "list": {
+                "method": "GET",
+                "path": "/orders"
+            },
+            "get": {
+                "by_id": {
+                    "method": "GET",
+                    "path": "/orders/${id}"
+                },
+                "by_client_oid": {
+                    "method": "GET",
+                    "path": "/orders/${client_oid}"
+                }
+            }
+        },
+        "fills": {
+            "method": "GET",
+            "path": "/fills"
+        },
+        "exchange_limits": {
+            "method": "GET",
+            "path": "/users/self/exchange-limits"
+        },
+        "deposits": {
+            "list": {
+                "method": "GET",
+                "path": "/transfers",
+                "kwargs": {
+                    "params": {
+                        "type": "deposit"
+                    }
+                }
+            },
+            "single": {
+                "method": "GET",
+                "path": "/transfers/:${transfer_id}"
+            },
+            "from": {
+                "payment_method": {
+                    "method": "POST",
+                    "path": "/deposits/payment-method"
+                },
+                "coinbase": {
+                    "method": "POST",
+                    "path": "/deposits/coinbase-account"
+                }
+            },
+            "generate_address": {
+                "method": "POST",
+                "path": "/coinbase-accounts/${coinbase_account_id}/addresses"
+            }
+        },
+        "withdrawals": {
+            "list": {
+                "method": "GET",
+                "path": "/transfers",
+                "kwargs": {
+                    "params": {
+                        "type": "withdraw"
+                    }
+                }
+            },
+            "single": {
+                "method": "GET",
+                "path": "/transfers/:${transfer_id}"
+            },
+            "to": {
+                "payment_method": {
+                    "method": "POST",
+                    "path": "/withdrawals/payment-method"
+                },
+                "coinbase": {
+                    "method": "POST",
+                    "path": "/withdrawals/coinbase-account"
+                },
+                "address": {
+                    "method": "POST",
+                    "path": "/withdrawals/crypto"
+                }
+            },
+            "fee_estimate": {
+                "method": "GET",
+                "path": "/withdrawals/fee-estimate"
+            }
+        },
+        "convert": {
+            "method": "POST",
+            "path": "/conversions"
+        },
+        "payment_methods": {
+            "method": "GET",
+            "path": "/payment-methods"
+        },
+        "coinbase_accounts": {
+            "method": "GET",
+            "path": "/coinbase-accounts"
+        },
+        "fees": {
+            "method": "GET",
+            "path": "/fees"
+        },
+        "reports": {
+            "create": {
+                "method": "POST",
+                "path": "/reports"
+            },
+            "status": {
+                "method": "GET",
+                "path": "/reports/:${report_id}"
+            }
+        },
+        "profiles": {
+            "list": {
+                "method": "GET",
+                "path": "/profiles"
+            },
+            "get": {
+                "method": "GET",
+                "path": "/profiles/${profile_id}"
+            },
+            "transfer": {
+                "method": "POST",
+                "path": "/profiles/transfer"
+            }
+        },
+        "trailing_volume": {
+            "method": "GET",
+            "path": "/users/self/trailing-volume"
+        },
+        "margin": {
+            "profile_info": {
+                "method": "GET",
+                "path": "/margin/profile_information"
+            },
+            "powers": {
+                "buying": {
+                    "method": "GET",
+                    "path": "/margin/buying_power"
+                },
+                "withdrawal": {
+                    "method": "GET",
+                    "path": "/margin/withdrawal_power"
+                },
+                "all_withdrawal": {
+                    "method": "GET",
+                    "path": "/margin/withdrawal_power_all"
+                }
+            },
+            "liquidation_history": {
+                "method": "GET",
+                "path": "/margin/liquidation_history"
+            },
+            "position_refresh_amounts": {
+                "method": "GET",
+                "path": "/margin/position_refresh_amounts"
+            },
+            "status": {
+                "method": "GET",
+                "path": "/margin/status"
+            }
+        },
+        "oracle": {
+            "method": "GET",
+            "path": "/oracle"
+        },
+        "market": {
+            "products": {
+                "list": {
+                    "method": "GET",
+                    "path": "/products"
+                },
+                "single": {
+                    "method": "GET",
+                    "path": "/products/${product_id}"
+                },
+                "order_book": {
+                    "method": "GET",
+                    "path": "/products/${product_id}/book"
+                },
+                "latest_tick": {
+                    "method": "GET",
+                    "path": "/products/${product_id}/ticker"
+                },
+                "trades": {
+                    "method": "GET",
+                    "path": "/products/${product_id}/trades"
+                },
+                "historic_rates": {
+                    "method": "GET",
+                    "path": "/products/${product_id}/candles"
+                },
+                "stats_24hrs": {
+                    "method": "GET",
+                    "path": "/products/${product_id}/stats"
+                }
+            },
+            "currencies": {
+                "list": {
+                    "method": "GET",
+                    "path": "/currencies"
+                }
+            },
+            "time": {
+                "method": "GET",
+                "path": "/time"
+            }
+        }
+    },
+    "session": {
+        "headers": {
+            "content-type": "application/json"
+        }
+    }
+}

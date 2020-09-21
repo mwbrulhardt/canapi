@@ -1,0 +1,196 @@
+{
+    "name": "polygon",
+    "uri": "https://api.polygon.io",
+    "endpoints": {
+        "reference": {
+            "tickers": {
+                "method": "GET",
+                "path": "/v2/reference/tickers"
+            },
+            "types": {
+                "method": "GET",
+                "path": "/v2/reference/types"
+            },
+            "details": {
+                "method": "GET",
+                "path": "/v1/meta/symbols/${symbol}/company"
+            },
+            "news": {
+                "method": "GET",
+                "path": "/v1/meta/symbols/${symbol}/news"
+            },
+            "markets": {
+                "method": "GET",
+                "path": "/v2/reference/markets"
+            },
+            "locales": {
+                "method": "GET",
+                "path": "/v2/reference/locales"
+            },
+            "splits": {
+                "method": "GET",
+                "path": "/v2/reference/splits/${symbol}"
+            },
+            "dividends": {
+                "method": "GET",
+                "path": "/v2/reference/dividends/${symbol}"
+            },
+            "financials": {
+                "method": "GET",
+                "path": "/v2/reference/financials/${symbol}"
+            },
+            "status": {
+                "method": "GET",
+                "path": "/v1/marketstatus/now"
+            },
+            "holidays": {
+                "method": "GET",
+                "path": "/v1/marketstatus/upcoming"
+            }
+        },
+        "stocks": {
+            "exchanges": {
+                "method": "GET",
+                "path": "/v1/meta/exchanges"
+            },
+            "previous_close": {
+                "method": "GET",
+                "path": "/v2/aggs/ticker/${ticker}/prev"
+            },
+            "aggregates": {
+                "method": "GET",
+                "path": "/v2/aggs/ticker/${ticker}/range/${multiplier}/${timespan}/${from}/${to}"
+            },
+            "grouped_daily": {
+                "method": "GET",
+                "path": "/v2/aggs/grouped/locale/${locale}/market/${market}/${date}"
+            },
+            "historic_trades": {
+                "method": "GET",
+                "path": "/v2/ticks/stocks/trades/${ticker}/${date}"
+            },
+            "historic_quotes": {
+                "method": "GET",
+                "path": "/v2/ticks/stocks/nbbo/${ticker}/${date}"
+            },
+            "last_trade_for_symbol": {
+                "method": "GET",
+                "path": "/v1/last/stocks/${symbol}"
+            },
+            "last_quote_for_symbol": {
+                "method": "GET",
+                "path": "/v1/last_quote/stocks/${symbol}"
+            },
+            "daily_open_close": {
+                "method": "GET",
+                "path": "/v1/open-close/${symbol}/${date}"
+            },
+            "condition_mappings": {
+                "method": "GET",
+                "path": "/v1/meta/conditions/${ticktype}"
+            },
+            "snapshot": {
+                "all": {
+                    "method": "GET",
+                    "path": "/v2/snapshot/locale/us/markets/stocks/tickers"
+                },
+                "single": {
+                    "method": "GET",
+                    "path": "/v2/snapshot/locale/us/markets/stocks/tickers/${ticker}"
+                },
+                "gainers": {
+                    "method": "GET",
+                    "path": "/v2/snapshot/locale/us/markets/stocks/gainers"
+                },
+                "losers": {
+                    "method": "GET",
+                    "path": "/v2/snapshot/locale/us/markets/stocks/losers"
+                }
+            }
+        },
+        "forex": {
+            "previous_close": {
+                "method": "GET",
+                "path": "/v2/aggs/ticker/${ticker}/prev"
+            },
+            "aggregates": {
+                "method": "GET",
+                "path": "/v2/aggs/ticker/${ticker}/range/${multiplier}/${timespan}/${from}/${to}"
+            },
+            "grouped_daily": {
+                "method": "GET",
+                "path": "/v2/aggs/grouped/locale/${locale}/market/${market}/${date}"
+            },
+            "historic_ticks": {
+                "method": "GET",
+                "path": "/v1/historic/forex/${from}/${to}/${date}"
+            },
+            "real_time_conversion": {
+                "method": "GET",
+                "path": "/v1/conversion/${from}/${to}"
+            },
+            "last_quote_for_pair": {
+                "method": "GET",
+                "path": "/v1/last_quote/currencies/${from}/${to}"
+            },
+            "snapshot": {
+                "all": {
+                    "method": "GET",
+                    "path": "/v2/snapshot/locale/global/markets/forex/tickers"
+                },
+                "gainers": {
+                    "method": "GET",
+                    "path": "/v2/snapshot/locale/global/markets/forex/gainers"
+                },
+                "losers": {
+                    "method": "GET",
+                    "path": "/v2/snapshot/locale/global/markets/forex/losers"
+                }
+            }
+        },
+        "crypto": {
+            "previous_close": {
+                "method": "GET",
+                "path": "/v2/aggs/ticker/${ticker}/prev"
+            },
+            "aggregates": {
+                "method": "GET",
+                "path": "/v2/aggs/ticker/${ticker}/range/${multiplier}/${timespan}/${from}/${to}"
+            },
+            "grouped_daily": {
+                "method": "GET",
+                "path": "/v2/aggs/grouped/locale/${locale}/market/${market}/${date}"
+            },
+            "exchanges": {
+                "method": "GET",
+                "path": "/v1/meta/crypto-exchanges"
+            },
+            "last_trade_for_pair": {
+                "method": "GET",
+                "path": "/v1/last/crypto/${from}/${to}"
+            },
+            "daily_open_close": {
+                "method": "GET",
+                "path": "/v1/open-close/crypto/${from}/${to}/${date}"
+            },
+            "historic_trades": {
+                "method": "GET",
+                "path": "/v1/historic/crypto/${from}/${to}/${date}"
+            },
+            "snapshot": {
+                "all": {
+                    "method": "GET",
+                    "path": "/v2/snapshot/locale/global/markets/crypto/tickers"
+                },
+                "single": {
+                    "method": "GET",
+                    "path": "/v2/snapshot/locale/global/markets/crypto/tickers/${ticker}"
+                },
+                "book": {
+                    "method": "GET",
+                    "path": "/v2/snapshot/locale/global/markets/crypto/tickers/${ticker}/book"
+                }
+            }
+        }
+    }
+}

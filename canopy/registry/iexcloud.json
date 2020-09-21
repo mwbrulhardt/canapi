@@ -1,0 +1,34 @@
+{
+    "name": "iexcloud",
+    "uri": "https://cloud.iexapis.com",
+    "endpoints": {
+        "ts": {
+            "extract_alpha": {
+                "esg_cpsc_recalls": {
+                    "method": "GET",
+                    "path": "/v1/time-series/PREMIUM_EXTRACT_ALPHA_ESG/${symbol}/${event_type}"
+                },
+                "visa_applications": {
+                    "method": "GET",
+                    "path": "/v1/time-series/PREMIUM_EXTRACT_ALPHA_ESG/${symbol}/8"
+                }
+            },
+            "precision_alpha": {
+                "price_dynamics": {
+                    "method": "GET",
+                    "path": "/v1/time-series/PREMIUM_PRECISION_ALPHA_PRICE_DYNAMICS/${symbol}"
+                }
+            },
+            "brain": {
+                "language_differences_10k": {
+                    "method": "GET",
+                    "path": "/v1/time-series/PREMIUM_BRAIN_LANGUAGE_DIFFERENCES_10K/${symbol}"
+                },
+                "metrics_on_quarter_and_annual_reports": {
+                    "method": "GET",
+                    "path": "/v1/time-series/PREMIUM_BRAIN_LANGUAGE_METRICS_ALL/${symbol}"
+                }
+            }
+        }
+    }
+}

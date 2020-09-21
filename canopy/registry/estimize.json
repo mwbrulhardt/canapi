@@ -1,0 +1,39 @@
+{
+    "name": "estimize",
+    "uri": "https://api.estimize.com",
+    "endpoints": {
+        "equities": {
+            "companies": {
+                "method": "GET"
+                "path": "/companies"
+            },
+            "releases": {
+                "method": "GET"
+                "path": "/companies/${ticker}/releases",
+            }
+        },
+        "metrics": {
+            "companies": {
+                "method": "GET"
+                "path": "/metrics/companies",
+            },
+            "metric_info": {
+                "method": "GET"
+                "path": "/metrics/companies/${ticker}",
+            },
+            "releases": {
+                "method": "GET"
+                "path": "/metrics/companies/${ticker}/releases/${metric_name}",
+            },
+            "estimates_by_date_range": {
+                "method": "GET"
+                "path": "/metrics/estimates/${metric_name}",
+            }
+        }
+    },
+    "session": {
+        "headers": {
+            "content-type" : "application/json"
+        }
+    }
+}
