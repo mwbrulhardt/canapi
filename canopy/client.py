@@ -23,7 +23,7 @@ class Endpoint:
     def __init__(self, api: 'ClientAPI', info: dict) -> None:
         self.api = api
         self.info = info
-        self.url_template = string.Template(info["path"])
+        self.url_template = string.Template(self.api.uri + info["path"])
 
     def __call__(self, **kwargs) -> dict:
         url_params = kwargs.pop('url_params', {})
@@ -60,7 +60,7 @@ class ClientAPI:
     kwargs : dict
         Other persistent information to intialize the `Session`.
     """
-    
+
     apis = {}
 
     def __init__(self,

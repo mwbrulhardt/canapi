@@ -1,5 +1,6 @@
 {
     "name": "estimize",
+    "documentation": "https://www.estimize.com/api_docs/v1",
     "uri": "https://api.estimize.com",
     "endpoints": {
         "equities": {

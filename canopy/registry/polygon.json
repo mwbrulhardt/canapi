@@ -1,5 +1,6 @@
 {
     "name": "polygon",
+    "documentation": "https://polygon.io/docs/",
     "uri": "https://api.polygon.io",
     "endpoints": {
         "reference": {

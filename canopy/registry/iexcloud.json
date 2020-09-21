@@ -1,5 +1,6 @@
 {
     "name": "iexcloud",
+    "documentation": "https://iexcloud.io/docs/api/",
     "uri": "https://cloud.iexapis.com",
     "endpoints": {
         "ts": {

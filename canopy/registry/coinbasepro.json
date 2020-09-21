@@ -1,5 +1,6 @@
 {
     "name": "coinbasepro",
+    "documentation": "https://docs.pro.coinbase.com/",
     "uri": "https://api.pro.coinbase.com",
     "endpoints": {
         "accounts": {
