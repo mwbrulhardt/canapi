@@ -1,6 +1,9 @@
 
 import json
 
+
+import canopy.auth as auth
+
 from canopy.client import ClientAPI
 
 
