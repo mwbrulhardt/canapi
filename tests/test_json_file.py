@@ -10,12 +10,9 @@ def test_estimize():
     estimize = cp.api("estimize")
     assert estimize
 
-
 def test_iex():
     iex = cp.api("iexcloud")
     assert iex
 
-
-def test_flightaware():
-    flightaware = cp.api("flightaware")
-    assert flightaware
+def test_coinbasepro():
+    cbpro = cp.api("coinbasepro")

@@ -4,23 +4,6 @@ import json
 from canopy.client import ClientAPI
 
 
-def api(name: str, **kwargs) -> ClientAPI:
-
-    if name in ClientAPI.apis:
-        client = ClientAPI.apis[name]
-        if kwargs:
-            client.auth(**kwargs)
-        return client
-
-    path = __path__[0] + f"/registry/{name}.json"
-    client = ClientAPI.from_json(path)
-
-    if kwargs:
-        client.auth(**kwargs)
-
-    return client
-
-
 def from_json(path: str) -> ClientAPI:
     """Generates a `ClientAPI` from a json configuration file.
 
@@ -42,3 +25,20 @@ def from_json(path: str) -> ClientAPI:
         **config.get('session', {})
     )
     return api
+
+
+def api(name: str, **kwargs) -> ClientAPI:
+
+    if name in ClientAPI.apis:
+        client = ClientAPI.apis[name]
+        if kwargs:
+            client.auth(**kwargs)
+        return client
+
+    path = __path__[0] + f"/registry/{name}.json"
+    client = from_json(path)
+
+    if kwargs:
+        client.auth(**kwargs)
+
+    return client
