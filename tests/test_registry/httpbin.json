@@ -1,0 +1,10 @@
+{
+    "name": "httpbin",
+    "uri": "https://httpbin.org",
+    "endpoints": {
+        "get_anything": {
+            "method": "GET",
+            "path": "/anything"
+        }
+    }
+}

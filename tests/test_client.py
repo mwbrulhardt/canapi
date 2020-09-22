@@ -57,3 +57,5 @@ def test_client_endpoints_with_template():
 
     data = httpbin.stream(url_params={"n": 10})
     assert data
+
+    del ClientAPI.apis[httpbin.name]

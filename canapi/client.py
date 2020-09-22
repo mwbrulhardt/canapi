@@ -60,7 +60,6 @@ class ClientAPI:
     kwargs : dict
         Other persistent information to intialize the `Session`.
     """
-
     apis = {}
 
     def __init__(self,

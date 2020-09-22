@@ -1,10 +1,28 @@
 
 import json
-
+import os
 
 import canapi.auth as auth
 
 from canapi.client import ClientAPI
+
+
+PATHS = {
+    "default": __path__[0] + "/registry"
+}
+
+
+def add_registry(name: str, path: str):
+    """Adds `path` as a valid registry to search for apis.
+
+    Parameters
+    ----------
+    name : str
+        Name of the registry.
+    path : str
+        A registry path.
+    """
+    PATHS[name] = path
 
 
 def from_json(path: str) -> ClientAPI:
@@ -31,6 +49,7 @@ def from_json(path: str) -> ClientAPI:
 
 
 def api(name: str, **kwargs) -> ClientAPI:
+    client = None
 
     if name in ClientAPI.apis:
         client = ClientAPI.apis[name]
@@ -38,10 +57,14 @@ def api(name: str, **kwargs) -> ClientAPI:
             client.auth(**kwargs)
         return client
 
-    path = __path__[0] + f"/registry/{name}.json"
-    client = from_json(path)
+    found = False
+    for k in PATHS.keys():
+        path = PATHS[k] + f"/{name}.json"
 
-    if kwargs:
-        client.auth(**kwargs)
+        if os.path.exists(path):
+            client = from_json(path)
+            if kwargs:
+                client.auth(**kwargs)
+            return client
 
     return client
