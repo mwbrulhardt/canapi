@@ -2,9 +2,9 @@
 import json
 
 
-import canopy.auth as auth
+import canapi.auth as auth
 
-from canopy.client import ClientAPI
+from canapi.client import ClientAPI
 
 
 def from_json(path: str) -> ClientAPI:

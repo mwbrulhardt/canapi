@@ -1,7 +1,7 @@
 
 import json
 
-from canopy.client import Endpoint, ClientAPI
+from canapi.client import Endpoint, ClientAPI
 
 
 def test_client_empty_endpoints():

@@ -1,6 +1,6 @@
 
 
-import canopy as cp
+import canapi as cp
 
 
 def test_coinbase_auth():

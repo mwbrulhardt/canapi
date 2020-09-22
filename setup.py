@@ -9,12 +9,12 @@ README = (HERE / "README.md").read_text()
 
 # This call to setup() does all the work
 setup(
-    name="canopy",
+    name="canapi",
     version="0.0.1",
     description="A universal client api generator.",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/finverse/canopy",
+    url="https://github.com/finverse/canapi",
     author="Matthew Brulhardt",
     author_email="mwbrulhardt@finverselabs.com",
     license="Apache 2.0",
