@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'canapi'
+project = 'CanAPI'
 copyright = '2020, Finverse Labs LLC'
 author = 'Matthew Brulhardt'
 
