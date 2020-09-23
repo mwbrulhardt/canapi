@@ -2,13 +2,13 @@
 A universal client api generator. To learn more about the design and how to use please read our [documentation](https://canapi.readthedocs.io/en/latest/)
 
 
-### Installation
+## Installation
 Install `canapi` from PyPi using:
 ```bash
 pip install canapi
 ```
 
-### Making a ClientAPI
+## Making a ClientAPI
 You can get started by using one of the client apis in our registry. Before running the following code, you must go to [polygon](https://polygon.io/) and obtain a free api key.
 ```python
 import canapi as cp
@@ -28,11 +28,10 @@ se significant advertising revenue', 'image': 'https://s.yimg.com/uu/api/res/1.2
 analyst_347/6909df17d6ef3af25ac79e2e6c0078d5', 'keywords': ['aapl']}
 ```
 
-You can also practice making your own client by finding a rest api and trying to make a configuration for it. For example, using the [httpbin](https://httpbin.org/) api the following configurations can be made that are functionally the same, but offer different client methods.
+You can also practice making your own client by finding a rest api and trying to make a configuration for it. For example, using the [httpbin](https://httpbin.org/) api the following client can be made.
 
 ```python
-
-httpbinv0 = cp.from_config({
+httpbin = cp.from_config({
     "name": "httpbinv0",
     "uri": "https://httpbin.org",
     "endpoints": {
@@ -53,28 +52,13 @@ httpbinv0 = cp.from_config({
     }
 })
 
-
-httpbinv1 = cp.from_config({
-    "name": "httpbinv1",
-    "uri": "https://httpbin.org",
-    "endpoints": {
-        "get_anything": {
-            "method": "get",
-            "path": "/anything"
-        },
-        "post_anything": {
-            "method": "post",
-            "path": "/anything"
-        },
-        "put_anything": {
-            "method": "put",
-            "path": "/anything"
-        }
-    }
-})
+print(httpbin.anything.get(params={"p0": 0}))
 ```
 
-The methods of the two clients are equivalent just different naming. Essentially, the mapping of method mapping between the two clients is `httpbinv0.anything.<method> == httpbinv1.<method>_anything`.
+## Contributors
+Here are some good ideas for contributions to the library at this point:
+* More json configuration files for the registry
+* Tool for converting OpenAPI yaml file into a usable json file for the registry.
+* Webscraping tools for creating a configuration files from rest api documentation online.
 
-### Conclusion
-This is the end of quickstart if you would like to know more go through our more thorough walkthrough!
+If you can think of more than create a new issue!
