@@ -6,13 +6,13 @@ The goal of this project is to quickly build client apis and use them without ne
 
 ## Design
 
-The design of this library is made specifically for the user to be able to quickly add and adjust their client api. As a design choice, `canapi` stays tightly coupled with the `requests.Session` interface. Since the requests library is very popular, using canapi will be quite familiar. Behind every `ClientAPI` is a session with persistent information provided by the user upon initialization. The most important of information usually provided is the authentication needed to access the rest api.
+The design of this library is made specifically for the user to be able to quickly add and adjust their client api. As a design choice, `canapi` stays tightly coupled with the `requests.Session` interface. Since the requests library is very popular, using canapi will be quite familiar. Behind every `ClientAPI` is a session with persistent information provided by the user upon initialization.
 
 There are two ways you can access a rest api:
 1. Install a client sdk built by either the community or a company.
 2. Build it yourself by making functions that only access the parts of the rest api you need.
 
-The problems with the first way arise when you need to access a lot of different client sdks and you do not want to have all of these packages installed. There also may be conflicting dependencies among these packages as well. In addition, you may not want all the functions that they provide, only the ones that are important for your use case. Lastly, you may not always agree with the logical structure of an SDK and would like the option to change it.
+The problems with the first way arise when you need to access a lot of different client sdks and you do not want to have all of these packages installed. There also may be conflicting dependencies among these packages as well. In addition, you may not want all the functions that they provide, only the ones that are important for your use case. Lastly, you may not always agree with the logical structure of the SDK and would like the option to change it.
 
 For the second method, writing client apis can be time consuming, especially when you feel you are repeating yourself. Part of the reason this library was built, was to follow the DRY principle. Additionally, if you have a habit of renaming functions, then having them hard coded is not something that is desired.
 
@@ -127,7 +127,7 @@ def forex_snapshot(**kwargs):
     return r.json()
 ```
 
-All function signatures are the same now. The keyword arguments of the functions are passed directly to the sessions `request` method. Some of the issues have now been addressed, but others still remain. We still need to solve the logical grouping problem and not repeat ourselves. Resolving these issues any further are beyond the scope of this walkthrough of the library. You can check out the final resolutions in the library code. But to show the utility of the library, we will write the equivalent client api of the code above using the library.
+All function signatures are the same now. The keyword arguments of the functions are passed directly to the session's request method. Some of the issues have now been addressed, but others still remain. We still need to solve the logical grouping problem as well as not repeating ourselves. Resolving these issues any further is beyond the scope of this walkthrough of the library. You can check out the final resolutions in the library code. But to show the utility of the library, we will write the equivalent client api of the code above.
 
 ```python
 polygon = cp.from_config({
@@ -182,7 +182,7 @@ polygon = cp.from_config({
 })
 ```
 
-The code above solves the grouping and repetition problems that we needed. You can also change it rapidly by using different names for the sub-apis if you don't like the names that have already been chosen. The following are some calls that you can make with the client api defined above.
+The code above solves the grouping and repetition problems that we needed. You can also change it by using different names for the sub-apis if you don't like the names that have already been chosen. The following are some calls that you can make with the client api defined above.
 
 ```python
 polygon.reference.tickers(params={
@@ -213,12 +213,12 @@ cp.api("polygon", params={"apiKey": "fake-key"})
 Writing a configuration file is quite simple. You only need to give some key
 information:
 
-1. Name of the client api.
-2. URI for the rest api.
-3. Endpoints of the rest api.
-4. Session parameters that need to persist for the lifetime of the client api.
+1. Name of the client.
+2. URI for the rest.
+3. Endpoints of the rest.
+4. Session parameters that need to persist for the lifetime of the client.
 
-Here is an example using the `httpbin` rest api used for testing the requests
+Here is an example using the `httpbin`, a rest api used to test the requests
 library.
 
 ```json
@@ -255,7 +255,7 @@ httpbin = cp.from_config({
 })
 ```
 
-After you generate a client api using one of these methods, the client api is cached and for the rest of your session you will have access to the client api by using,
+After you generate a client using one of these methods, it is cached. For the rest of your session, you will have access to the client by using,
 
 
 
@@ -298,8 +298,8 @@ There are a couple of reasons that we do not have complete reliance on OpenAPI:
    can easily create a json file, usable by this library, from the yaml
    configuration files of OpenAPI.
 3. There is no need to generate or install an entire client SDK package for every api you are looking to use.
-4. Using `canapi`, you have immediate control over the naming and logical grouping of your client api.
+4. Using `canapi`, you have immediate control over the naming and logical grouping of your client.
 
 
 ## Conclusion
-This concludes our walkthrough and we would love to see some new ideas and feature requests by submitting issues on the GitHub. We hope you enjoyed getting to know the `canapi` library!
+This concludes our walkthrough. We would love to see some new ideas and feature requests by submitting issues on the GitHub. We hope you enjoyed getting to know the `canapi` library!

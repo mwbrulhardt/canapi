@@ -14,6 +14,13 @@ Welcome to canapi's documentation!
    walkthrough.md
 
 
+.. toctree::
+   :maxdepth: 1
+   :caption: API reference
+
+   API reference <api/modules>
+
+
 Indices and tables
 ==================
 

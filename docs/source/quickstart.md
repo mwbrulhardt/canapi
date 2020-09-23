@@ -73,7 +73,7 @@ httpbinv1 = cp.from_config({
 })
 ```
 
-The methods of the two clients are equivalent just different naming. Essentially, the mapping of method mapping between the two clients is `httpbinv0.anything.<method> == httpbinv1.<method>_anything`.
+The functionality of the two clients are equivalent. The only differences are in the grouping and naming of the endpoints. Essentially, the mapping of methods between the two clients is `httpbinv0.anything.<method> == httpbinv1.<method>_anything`.
 
-### Conclusion
-This is the end of quickstart if you would like to know more go through our more thorough walkthrough!
+
+Hope you enjoyed the quickstart, if you would like to know more go through our more thorough walkthrough!
