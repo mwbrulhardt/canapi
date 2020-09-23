@@ -57,6 +57,8 @@ class ClientAPI:
         Base uri to use for all endpoints in the api.
     endpoints : dict
         Available subapis and endpoints for the client.
+    root : bool
+        If this api is the root api.
     kwargs : dict
         Other persistent information to intialize the `Session`.
     """
@@ -66,13 +68,23 @@ class ClientAPI:
                  name: str,
                  uri: str,
                  endpoints: dict,
+                 root: bool = True,
                  **kwargs) -> None:
         self.name = name
         self.uri = uri
+        self.root = root
 
-        if self.name not in ClientAPI.apis.keys():
+        if root:
             self.apis[self.name] = self
             self.session = Session()
+
+            self.config = {
+                "name": name,
+                "uri": uri,
+                "endpoints": endpoints,
+                "session": kwargs,
+            }
+
             self.persist(**kwargs)
 
         for k, info in endpoints.items():
@@ -83,7 +95,7 @@ class ClientAPI:
                 )
                 setattr(self, k, endpoint)
             else:
-                api = ClientAPI(name, uri, info)
+                api = ClientAPI(name, uri, info, root=False)
                 setattr(self, k, api)
 
     def persist(self, **kwargs) -> None:

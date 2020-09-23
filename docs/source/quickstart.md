@@ -1,5 +1,4 @@
-# CanAPI
-A universal client api generator. To learn more about the design and how to use please read our [documentation](https://canapi.readthedocs.io/en/latest/)
+# Quickstart
 
 
 ### Installation

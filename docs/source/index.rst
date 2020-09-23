@@ -10,6 +10,7 @@ Welcome to canapi's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   quickstart.md
    walkthrough.md
 
 

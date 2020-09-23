@@ -7,22 +7,26 @@ import canapi.auth as auth
 from canapi.client import ClientAPI
 
 
-PATHS = {
-    "default": __path__[0] + "/registry"
-}
-
-
-def add_registry(name: str, path: str):
-    """Adds `path` as a valid registry to search for apis.
+def from_config(config: dict) -> ClientAPI:
+    """Generates a client api from a `config` dictionary.
 
     Parameters
     ----------
-    name : str
-        Name of the registry.
-    path : str
-        A registry path.
+    config : dict
+        The configuration dictionary.
+
+    Returns
+    -------
+    `ClientAPI`
+        A client api.
     """
-    PATHS[name] = path
+    api = ClientAPI(
+        name=config['name'],
+        uri=config['uri'],
+        endpoints=config['endpoints'],
+        **config.get('session', {})
+    )
+    return api
 
 
 def from_json(path: str) -> ClientAPI:
@@ -36,35 +40,26 @@ def from_json(path: str) -> ClientAPI:
     Returns
     -------
     `ClientAPI`
-        A client api generated from the configuration file.
+        A client api.
     """
     config = json.load(open(path))
-    api = ClientAPI(
-        name=config['name'],
-        uri=config['uri'],
-        endpoints=config['endpoints'],
-        **config.get('session', {})
-    )
-    return api
+    return from_config(config)
 
 
-def api(name: str, **kwargs) -> ClientAPI:
+def api(name: str, use_cache: bool = True, **kwargs) -> ClientAPI:
     client = None
 
-    if name in ClientAPI.apis:
+    if use_cache and name in ClientAPI.apis:
         client = ClientAPI.apis[name]
         if kwargs:
             client.auth(**kwargs)
         return client
 
-    found = False
-    for k in PATHS.keys():
-        path = PATHS[k] + f"/{name}.json"
-
-        if os.path.exists(path):
-            client = from_json(path)
-            if kwargs:
-                client.auth(**kwargs)
-            return client
+    path = __path__[0] + f"/registry/{name}.json"
+    if os.path.exists(path):
+        client = from_json(path)
+        if kwargs:
+            client.auth(**kwargs)
+        return client
 
     return client

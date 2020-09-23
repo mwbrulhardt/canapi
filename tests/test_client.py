@@ -59,3 +59,28 @@ def test_client_endpoints_with_template():
     assert data
 
     del ClientAPI.apis[httpbin.name]
+
+
+def test_subapi_groups():
+
+    httpbin = ClientAPI(
+        name="httpbin",
+        uri="https://httpbin.org",
+        endpoints={
+            "anything": {
+                "get": {
+                    "method": "get",
+                    "path": "/anything"
+                },
+                "post": {
+                    "method": "post",
+                    "path": "/anything"
+                }
+            }
+        }
+    )
+
+    data = httpbin.anything.get()
+    assert data
+
+    del ClientAPI.apis[httpbin.name]
