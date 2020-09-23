@@ -63,9 +63,9 @@ print(httpbin.anything.get(params={"p0": 0}))
 ```
 
 ## Contributors
-Here are some good ideas for contributions to the library at this point:
-* More json configuration files for the registry
-* Tool for converting OpenAPI yaml file into a usable json file for the registry.
-* Webscraping tools for creating a configuration files from rest api documentation online.
+Here are some good ideas for contributions to the library:
+* Adding more configuration files to the registry
+* Building tools for converting OpenAPI yaml files into usable json files
+* Building tools for scraping api documentation and generating configuration files
 
-If you can think of more than create a new issue!
+If you can think of more, then create a new issue!
