@@ -1,1 +1,1 @@
-recursive-include canopy/registry *
+recursive-include canapi/registry *
