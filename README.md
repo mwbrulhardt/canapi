@@ -1,4 +1,8 @@
 # CanAPI
+
+![license](https://img.shields.io/github/license/finverse/canapi)
+
+
 A universal client api generator. To learn more about the design and how to use please read our [documentation](https://canapi.readthedocs.io/en/latest/)
 
 
@@ -28,11 +32,11 @@ se significant advertising revenue', 'image': 'https://s.yimg.com/uu/api/res/1.2
 analyst_347/6909df17d6ef3af25ac79e2e6c0078d5', 'keywords': ['aapl']}
 ```
 
-You can also practice making your own client by finding a rest api and trying to make a configuration for it. For example, using the [httpbin](https://httpbin.org/) api the following client can be made.
+You can also practice making your own client by finding a rest api and trying to make a configuration for it. For example, using [httpbin](https://httpbin.org/) the following client can be made.
 
 ```python
 httpbin = cp.from_config({
-    "name": "httpbinv0",
+    "name": "httpbin",
     "uri": "https://httpbin.org",
     "endpoints": {
         "anything": {
