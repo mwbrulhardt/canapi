@@ -1,9 +1,9 @@
 # CanAPI
 
-
-![Stars](https://img.shields.io/github/stars/finverse/canapi)
-![Documentation Status](https://readthedocs.org/projects/canapi/badge/?version=latest)
 ![License](https://img.shields.io/github/license/finverse/canapi)
+![Build Status](https://img.shields.io/github/workflow/status/finverse/canapi/CanAPI)
+![Documentation Status](https://readthedocs.org/projects/canapi/badge/?version=latest)
+![Stars](https://img.shields.io/github/stars/finverse/canapi)
 
 
 A universal client api generator. To learn more about the design and how to use please read our [documentation](https://canapi.readthedocs.io/en/latest/)
