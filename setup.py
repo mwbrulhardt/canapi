@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="canapi",
-    version="0.0.2",
+    version="0.0.3",
     description="A universal client api generator.",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -21,6 +21,9 @@ setup(
     classifiers=[
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
+        "Intended Audience :: Developers",
+        "Intended Audience :: Financial and Insurance Industry",
+        "Intended Audience :: Science/Research"
     ],
     packages=find_packages(exclude=("tests",)),
     include_package_data=True
