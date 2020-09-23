@@ -6,7 +6,7 @@ import canapi as cp
 
 def test_polygon():
     polygon = cp.api("polygon")
-    assert False
+    assert polygon
 
 
 def test_estimize():
