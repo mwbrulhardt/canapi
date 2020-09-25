@@ -12,7 +12,7 @@ A universal client api generator. To learn more about the design and how to use 
 ## Installation
 Install `canapi` from PyPi using:
 ```bash
-pip install canapi
+$ pip install canapi
 ```
 
 ## Making a ClientAPI
