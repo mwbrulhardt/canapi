@@ -1,71 +1,71 @@
 {
     "name": "coinbasepro",
-    "documentation": "https://docs.pro.coinbase.com/",
+    "documentation": "https://docs.pro.coinbase.com",
     "uri": "https://api.pro.coinbase.com",
     "endpoints": {
         "accounts": {
             "list": {
-                "method": "GET",
+                "method": "get",
                 "path": "/accounts"
             },
             "get": {
-                "method": "GET",
+                "method": "get",
                 "path": "/accounts/${account_id}"
             },
             "history": {
-                "method": "GET",
+                "method": "get",
                 "path": "/accounts/${account_id}/ledger"
             },
             "holds": {
-                "method": "GET",
+                "method": "get",
                 "path": "/accounts/${account_id}/holds"
             }
         },
         "orders": {
             "place": {
-                "method": "POST",
+                "method": "post",
                 "path": "/orders"
             },
             "cancel": {
                 "by_id": {
-                    "method": "DELETE",
+                    "method": "delete",
                     "path": "/orders/${id}"
                 },
                 "by_client_oid": {
-                    "method": "DELETE",
+                    "method": "delete",
                     "path": "/orders/client:${client_oid}"
                 },
                 "all": {
-                    "method": "DELETE",
+                    "method": "delete",
                     "path": "/orders/all"
                 }
             },
             "list": {
-                "method": "GET",
+                "method": "get",
                 "path": "/orders"
             },
             "get": {
                 "by_id": {
-                    "method": "GET",
+                    "method": "get",
                     "path": "/orders/${id}"
                 },
                 "by_client_oid": {
-                    "method": "GET",
+                    "method": "get",
                     "path": "/orders/${client_oid}"
                 }
             }
         },
         "fills": {
-            "method": "GET",
+            "method": "get",
             "path": "/fills"
         },
         "exchange_limits": {
-            "method": "GET",
+            "method": "get",
             "path": "/users/self/exchange-limits"
         },
         "deposits": {
             "list": {
-                "method": "GET",
+                "method": "get",
                 "path": "/transfers",
                 "kwargs": {
                     "params": {
@@ -74,27 +74,27 @@
                 }
             },
             "single": {
-                "method": "GET",
+                "method": "get",
                 "path": "/transfers/:${transfer_id}"
             },
             "from": {
                 "payment_method": {
-                    "method": "POST",
+                    "method": "post",
                     "path": "/deposits/payment-method"
                 },
                 "coinbase": {
-                    "method": "POST",
+                    "method": "post",
                     "path": "/deposits/coinbase-account"
                 }
             },
             "generate_address": {
-                "method": "POST",
+                "method": "post",
                 "path": "/coinbase-accounts/${coinbase_account_id}/addresses"
             }
         },
         "withdrawals": {
             "list": {
-                "method": "GET",
+                "method": "get",
                 "path": "/transfers",
                 "kwargs": {
                     "params": {
@@ -103,147 +103,147 @@
                 }
             },
             "single": {
-                "method": "GET",
+                "method": "get",
                 "path": "/transfers/:${transfer_id}"
             },
             "to": {
                 "payment_method": {
-                    "method": "POST",
+                    "method": "post",
                     "path": "/withdrawals/payment-method"
                 },
                 "coinbase": {
-                    "method": "POST",
+                    "method": "post",
                     "path": "/withdrawals/coinbase-account"
                 },
                 "address": {
-                    "method": "POST",
+                    "method": "post",
                     "path": "/withdrawals/crypto"
                 }
             },
             "fee_estimate": {
-                "method": "GET",
+                "method": "get",
                 "path": "/withdrawals/fee-estimate"
             }
         },
         "convert": {
-            "method": "POST",
+            "method": "post",
             "path": "/conversions"
         },
         "payment_methods": {
-            "method": "GET",
+            "method": "get",
             "path": "/payment-methods"
         },
         "coinbase_accounts": {
-            "method": "GET",
+            "method": "get",
             "path": "/coinbase-accounts"
         },
         "fees": {
-            "method": "GET",
+            "method": "get",
             "path": "/fees"
         },
         "reports": {
             "create": {
-                "method": "POST",
+                "method": "post",
                 "path": "/reports"
             },
             "status": {
-                "method": "GET",
+                "method": "get",
                 "path": "/reports/:${report_id}"
             }
         },
         "profiles": {
             "list": {
-                "method": "GET",
+                "method": "get",
                 "path": "/profiles"
             },
             "get": {
-                "method": "GET",
+                "method": "get",
                 "path": "/profiles/${profile_id}"
             },
             "transfer": {
-                "method": "POST",
+                "method": "post",
                 "path": "/profiles/transfer"
             }
         },
         "trailing_volume": {
-            "method": "GET",
+            "method": "get",
             "path": "/users/self/trailing-volume"
         },
         "margin": {
             "profile_info": {
-                "method": "GET",
+                "method": "get",
                 "path": "/margin/profile_information"
             },
             "powers": {
                 "buying": {
-                    "method": "GET",
+                    "method": "get",
                     "path": "/margin/buying_power"
                 },
                 "withdrawal": {
-                    "method": "GET",
+                    "method": "get",
                     "path": "/margin/withdrawal_power"
                 },
                 "all_withdrawal": {
-                    "method": "GET",
+                    "method": "get",
                     "path": "/margin/withdrawal_power_all"
                 }
             },
             "liquidation_history": {
-                "method": "GET",
+                "method": "get",
                 "path": "/margin/liquidation_history"
             },
             "position_refresh_amounts": {
-                "method": "GET",
+                "method": "get",
                 "path": "/margin/position_refresh_amounts"
             },
             "status": {
-                "method": "GET",
+                "method": "get",
                 "path": "/margin/status"
             }
         },
         "oracle": {
-            "method": "GET",
+            "method": "get",
             "path": "/oracle"
         },
         "market": {
             "products": {
                 "list": {
-                    "method": "GET",
+                    "method": "get",
                     "path": "/products"
                 },
                 "single": {
-                    "method": "GET",
+                    "method": "get",
                     "path": "/products/${product_id}"
                 },
                 "order_book": {
-                    "method": "GET",
+                    "method": "get",
                     "path": "/products/${product_id}/book"
                 },
                 "latest_tick": {
-                    "method": "GET",
+                    "method": "get",
                     "path": "/products/${product_id}/ticker"
                 },
                 "trades": {
-                    "method": "GET",
+                    "method": "get",
                     "path": "/products/${product_id}/trades"
                 },
                 "historic_rates": {
-                    "method": "GET",
+                    "method": "get",
                     "path": "/products/${product_id}/candles"
                 },
                 "stats_24hrs": {
-                    "method": "GET",
+                    "method": "get",
                     "path": "/products/${product_id}/stats"
                 }
             },
             "currencies": {
                 "list": {
-                    "method": "GET",
+                    "method": "get",
                     "path": "/currencies"
                 }
             },
             "time": {
-                "method": "GET",
+                "method": "get",
                 "path": "/time"
             }
         }

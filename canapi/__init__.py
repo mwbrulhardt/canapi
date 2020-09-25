@@ -46,7 +46,7 @@ def from_json(path: str) -> ClientAPI:
     return from_config(config)
 
 
-def api(name: str, use_cache: bool = True, **kwargs) -> ClientAPI:
+def api(name: str, version: str = None, use_cache: bool = True, **kwargs) -> ClientAPI:
     """Gets the client api associated with `name`.
 
     If cached is set to True then the client api will be fetched from the
@@ -58,6 +58,8 @@ def api(name: str, use_cache: bool = True, **kwargs) -> ClientAPI:
     ----------
     name : str
         Name of the client api.
+    version : str
+        Specific version of the client api.
     use_cache : bool
         Whether or not to use the `ClientAPI` cache.
     kwargs : keyword arguments
@@ -76,7 +78,10 @@ def api(name: str, use_cache: bool = True, **kwargs) -> ClientAPI:
             client.auth(**kwargs)
         return client
 
-    path = __path__[0] + f"/registry/{name}.json"
+    registry_path = __path__[0] + "/registry"
+    file_path = f"/{name}.json" if version is None else f"/{name}/{version}.json"
+
+    path = registry_path + file_path
     if os.path.exists(path):
         client = from_json(path)
         if kwargs:

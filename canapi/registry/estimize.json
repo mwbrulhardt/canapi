@@ -5,29 +5,29 @@
     "endpoints": {
         "equities": {
             "companies": {
-                "method": "GET",
+                "method": "get",
                 "path": "/companies"
             },
             "releases": {
-                "method": "GET",
+                "method": "get",
                 "path": "/companies/${ticker}/releases"
             }
         },
         "metrics": {
             "companies": {
-                "method": "GET",
+                "method": "get",
                 "path": "/metrics/companies"
             },
             "metric_info": {
-                "method": "GET",
+                "method": "get",
                 "path": "/metrics/companies/${ticker}"
             },
             "releases": {
-                "method": "GET",
+                "method": "get",
                 "path": "/metrics/companies/${ticker}/releases/${metric_name}"
             },
             "estimates_by_date_range": {
-                "method": "GET",
+                "method": "get",
                 "path": "/metrics/estimates/${metric_name}"
             }
         }

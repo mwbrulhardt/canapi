@@ -1,0 +1,143 @@
+{
+    "name": "alpaca:live",
+    "documentation": "https://alpaca.markets/docs/api-documentation/api-v2",
+    "uri": "https://api.alpaca.markets",
+    "endpoints": {
+        "account": {
+            "get": {
+                "method": "get",
+                "path": "/v2/account"
+            },
+            "configs": {
+                "get": {
+                    "method": "get",
+                    "path": "/v2/account/configurations"
+                },
+                "update": {
+                    "method": "patch",
+                    "path": "/v2/account/configurations"
+                }
+            },
+            "activities": {
+                "list": {
+                    "method": "get",
+                    "path": "/v2/account/activities"
+                },
+                "get": {
+                    "method": "get",
+                    "path": "/v2/account/activities/${activity_type}"
+                }
+            },
+            "portfolio": {
+                "history": {
+                    "method": "get",
+                    "path": "/v2/account/portfolio/history"
+                }
+            }
+        },
+        "orders": {
+            "list": {
+                "method": "get",
+                "path": "/v2/orders"
+            },
+            "submit": {
+                "method": "post",
+                "path": "/v2/orders"
+            },
+            "by": {
+                "id": {
+                    "method": "get",
+                    "path": "/v2/orders/${order_id}"
+                },
+                "client_oid": {
+                    "method": "get",
+                    "path": "/v2/orders:by_client_order_id"
+                }
+            },
+            "replace": {
+                "method": "patch",
+                "path": "/v2/orders/${order_id}"
+            },
+            "cancel": {
+                "all": {
+                    "method": "delete",
+                    "path": "/v2/orders"
+                },
+                "single": {
+                    "method": "delete",
+                    "path": "/v2/orders/${order_id}"
+                }
+            }
+        },
+        "positions": {
+            "open": {
+                "list": {
+                    "method": "get",
+                    "path": "/v2/positions"
+                },
+                "get": {
+                    "method": "get",
+                    "path": "/v2/positions/${symbol}"
+                }
+            },
+            "close": {
+                "all": {
+                    "method": "delete",
+                    "path": "/v2/positions"
+                },
+                "single": {
+                    "method": "delete",
+                    "path": "/v2/positions/${symbol}"
+                }
+            }
+        },
+        "assets": {
+            "list": {
+                "method": "get",
+                "path": "/v2/assets"
+            },
+            "get": {
+                "method": "get",
+                "path": "/v2/assets/${symbol}"
+            }
+        },
+        "watchlists": {
+            "list": {
+                "method": "get",
+                "path": "/v2/watchlists"
+            },
+            "create": {
+                "method": "post",
+                "path": "/v2/watchlists"
+            },
+            "get": {
+                "method": "get",
+                "path": "/v2/watchlists/${watchlist_id}"
+            },
+            "update": {
+                "method": "put",
+                "path": "/v2/watchlists/${watchlist_id}"
+            },
+            "add": {
+                "method": "post",
+                "path": "/v2/watchlists/${watchlist_id}"
+            },
+            "delete": {
+                "method": "delete",
+                "path": "/v2/watchlists/${watchlist_id}"
+            },
+            "remove": {
+                "method": "delete",
+                "path": "/v2/watchlists/${watchlist_id}/${symbol}"
+            }
+        },
+        "calendar": {
+            "method": "get",
+            "path": "/v2/calendar"
+        },
+        "clock": {
+            "method": "get",
+            "path": "/v2/clock"
+        }
+    }
+}
