@@ -2,9 +2,29 @@
 import json
 import os
 
+import requests
+
 import canapi.auth as auth
 
 from canapi.client import ClientAPI
+from canapi.exceptions import ClientAPINotRegistered
+
+
+_REGISTRY = {
+    "github": "https://raw.githubusercontent.com/finverse/canapi/master/registry",
+    "local": None
+}
+
+
+def init(path: str) -> None:
+    """Initializes canapi to search using a specified local registry.
+
+    Parameters
+    ----------
+    path : str
+        The path for the local registry.
+    """
+    _REGISTRY["local"] = None
 
 
 def from_config(config: dict) -> ClientAPI:
@@ -69,23 +89,31 @@ def api(name: str, version: str = None, use_cache: bool = True, **kwargs) -> Cli
     -------
     `ClientAPI`
         The client api associated with `name`.
+
+    Raises
+    ------
+    ClientAPINotRegistered
+        If the client api can not be found in the remote and local registries.
     """
     client = None
 
     if use_cache and name in ClientAPI.apis:
         client = ClientAPI.apis[name]
-        if kwargs:
-            client.auth(**kwargs)
-        return client
 
-    registry_path = __path__[0] + "/registry"
     file_path = f"/{name}.json" if version is None else f"/{name}/{version}.json"
 
-    path = registry_path + file_path
-    if os.path.exists(path):
-        client = from_json(path)
-        if kwargs:
-            client.auth(**kwargs)
-        return client
+    if _REGISTRY["local"] is not None and not client:
+        path = _REGISTRY["local"] + file_path
+        if os.path.exists(path):
+            client = from_json(path)
+    else:
+        url = _REGISTRY["github"] + file_path
+        client = from_config(requests.get(url).json())
+
+    if not client:
+        raise ClientAPINotRegistered(name, version)
+
+    if kwargs:
+        client.auth(**kwargs)
 
     return client
